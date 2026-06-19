@@ -1,0 +1,15 @@
+import requests
+query="samsung"
+api="6e834c276dea4187b40746f67ebb6d64"
+
+url=f"https://newsapi.org/v2/everything?q={query}&from=2026-05-19&sortBy=publishedAt&apiKey={api}"
+print(url)
+c=requests.get(url)
+data=c.json()
+Articles=data['articles']
+for article in Articles:
+    print(article['title'])
+    print(article['description'])
+    print(article['url'])
+    print(article['publishedAt'])
+    print("---------------------------------------------------")
